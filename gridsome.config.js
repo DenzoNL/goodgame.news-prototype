@@ -8,6 +8,12 @@ module.exports = {
   siteName: 'Gridsome',
   plugins: [
     /**
+     * Add the Tailwind CSS plugin.
+     */
+    {
+      use: 'gridsome-plugin-tailwindcss',
+    },
+    /**
      * Use Ghost CMS as our data source.
      */
     {
