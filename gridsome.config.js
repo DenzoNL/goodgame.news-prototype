@@ -6,5 +6,20 @@
 
 module.exports = {
   siteName: 'Gridsome',
-  plugins: []
+  plugins: [
+    /**
+     * Use Ghost CMS as our data source.
+     */
+    {
+      use: '@gridsome/source-ghost',
+      options: {
+        baseUrl: process.env.GHOST_URL,
+        contentKey: process.env.GHOST_CONTENT_KEY,
+      }
+    }
+  ],
+  templates: {
+    GhostPost: '/:slug',
+    GhostTag: '/tag/:slug',
+  }
 }
