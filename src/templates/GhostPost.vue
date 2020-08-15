@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <article class="prose">
+    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
       <header>
         <h1 v-html="$page.post.title"></h1>
       </header>
