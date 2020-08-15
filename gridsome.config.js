@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'GoodGame.news',
   plugins: [
     /**
      * Add the Tailwind CSS plugin.
