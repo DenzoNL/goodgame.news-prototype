@@ -7,5 +7,9 @@
     "javascript",
     "javascriptreact",
     "vue"
-  ]
+  ],
+  "vetur.grammar.customBlocks": {
+    "page-query": "graphql",
+    "static-query": "graphql"
+  },
 }
