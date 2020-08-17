@@ -19,7 +19,7 @@
       node {
         title
         description: excerpt
-        date: published_at (format: "MMMM D, YYYY")
+        date: published_at
         path
         reading_time
         tags {
