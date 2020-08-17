@@ -4,13 +4,16 @@
       <header>
         <h1 v-html="$page.post.title"></h1>
         <g-image
-          class="rounded w-full hover:opacity-75"
+          class="rounded w-full"
           v-if="$page.post.coverImage"
           :src="$page.post.coverImage"
         ></g-image>
       </header>
       <section>
-        <blockquote v-html="$page.post.description"></blockquote>
+        <blockquote
+          v-html="$page.post.description"
+          class="shadow py-4 pr-2"
+        ></blockquote>
       </section>
       <section v-html="$page.post.content"></section>
       <section id="commento"></section>
