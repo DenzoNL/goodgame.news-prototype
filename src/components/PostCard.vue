@@ -10,7 +10,7 @@
       </g-link>
       <g-link :to="post.path">
         <h2
-          class="text-xl font-semibold hover:underline text-gray-900 mt-2"
+          class="text-xl font-semibold hover:underline text-indigo-500 mt-2"
           v-html="post.title"
         ></h2>
       </g-link>

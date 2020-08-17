@@ -8,7 +8,7 @@
       >
 
       <template v-if="post.reading_time">
-        <p class="font-semibold">{{ post.reading_time }} min read</p>
+        <p>{{ post.reading_time }} min read</p>
       </template>
     </div>
     <div class="flex justify-between items-center text-xs">
