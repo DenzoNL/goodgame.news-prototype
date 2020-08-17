@@ -24,6 +24,12 @@ export default {
   },
   metaInfo() {
     return {
+      meta: [
+        {
+          name: 'referrer',
+          content: 'no-referrer-when-downgrade',
+        },
+      ],
       link: [
         {
           href: process.env.GRIDSOME_GHOST_URL,
