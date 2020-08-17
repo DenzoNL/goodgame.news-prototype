@@ -6,15 +6,22 @@
       :post="edge.node"
     >
     </PostCard>
+    <Pager :pageInfo="$page.posts.pageInfo"></Pager>
   </Layout>
 </template>
 
 <page-query>
-{
+query ($page: Int){
   posts: allGhostPost(
+      perPage: 10, 
+      page: $page,
       sortBy: "published_at",
       order: DESC,
-  ) {
+  ) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         title
@@ -43,10 +50,12 @@
 
 <script>
 import PostCard from '../components/PostCard.vue';
+import Pager from '../components/Pager.vue';
 
 export default {
   components: {
     PostCard,
+    Pager,
   },
 
   metaInfo() {
