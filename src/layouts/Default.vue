@@ -1,11 +1,6 @@
 <template>
   <div class="antialiased">
-    <header>
-      <h1
-        class="text-4xl font-bold text-indigo-500"
-        v-html="$static.metadata.siteName"
-      ></h1>
-    </header>
+    <NavBar></NavBar>
     <div class="container max-w-2xl mx-auto mt-4 px-4">
       <slot />
     </div>
@@ -21,7 +16,12 @@ query {
 </static-query>
 
 <script>
+import NavBar from '../components/NavBar';
+
 export default {
+  components: {
+    NavBar,
+  },
   metaInfo() {
     return {
       link: [
