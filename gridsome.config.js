@@ -13,6 +13,12 @@ module.exports = {
      */
     {
       use: 'gridsome-plugin-tailwindcss',
+      options: {
+        tailwindConfig: './tailwind.config.js',
+        presetEnvConfig: {},
+        shouldImport: true,
+        shouldTimeTravel: true,
+      },
     },
     /**
      * Use Ghost CMS as our data source.

@@ -61,5 +61,25 @@ export default {
       ],
     };
   },
+
+  mounted() {
+    this.fixYoutubeEmbeds();
+  },
+
+  methods: {
+    fixYoutubeEmbeds() {
+      document.querySelectorAll('iframe').forEach((el) => {
+        if (el.src && el.src.includes('https://www.youtube.com')) {
+          el.src = el.src.replace(
+            'https://www.youtube.com',
+            'https://www.youtube-nocookie.com',
+          );
+          el.classList.add('embed-responsive-item');
+          el.parentElement.classList.add('embed-responsive');
+          el.parentElement.classList.add('aspect-ratio-16/9');
+        }
+      });
+    },
+  },
 };
 </script>

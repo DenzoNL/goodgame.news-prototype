@@ -12,7 +12,9 @@
     "@gridsome/source-ghost": "^0.4.0",
     "@tailwindcss/typography": "^0.2.0",
     "date-fns": "^2.15.0",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "tailwindcss-aspect-ratio": "^3.0.0",
+    "tailwindcss-responsive-embed": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
