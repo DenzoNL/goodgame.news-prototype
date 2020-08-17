@@ -5,15 +5,21 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'GoodGame.news',
   plugins: [
+    /**
+     * Add the Tailwind CSS plugin.
+     */
+    {
+      use: 'gridsome-plugin-tailwindcss',
+    },
     /**
      * Use Ghost CMS as our data source.
      */
     {
       use: '@gridsome/source-ghost',
       options: {
-        baseUrl: process.env.GHOST_URL,
+        baseUrl: process.env.GRIDSOME_GHOST_URL,
         contentKey: process.env.GHOST_CONTENT_KEY,
       },
     },
