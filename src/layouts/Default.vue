@@ -19,3 +19,19 @@ query {
   }
 }
 </static-query>
+
+<script>
+export default {
+  metaInfo() {
+    return {
+      link: [
+        {
+          href: process.env.GRIDSOME_GHOST_URL,
+          rel: 'preconnect',
+          crossorigin: true,
+        },
+      ],
+    };
+  },
+};
+</script>

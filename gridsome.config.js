@@ -19,7 +19,7 @@ module.exports = {
     {
       use: '@gridsome/source-ghost',
       options: {
-        baseUrl: process.env.GHOST_URL,
+        baseUrl: process.env.GRIDSOME_GHOST_URL,
         contentKey: process.env.GHOST_CONTENT_KEY,
       },
     },
