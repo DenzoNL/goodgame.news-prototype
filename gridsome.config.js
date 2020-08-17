@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'GoodGame.news',
+  siteUrl: 'https://goodgame.news',
   plugins: [
     /**
      * Add the Tailwind CSS plugin.
@@ -22,6 +23,12 @@ module.exports = {
         baseUrl: process.env.GRIDSOME_GHOST_URL,
         contentKey: process.env.GHOST_CONTENT_KEY,
       },
+    },
+    /**
+     * Automatically generate a sitemap
+     */
+    {
+      use: '@gridsome/plugin-sitemap',
     },
   ],
   /**
