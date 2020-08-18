@@ -82,6 +82,11 @@ export default {
           href: process.env.GRIDSOME_COMMENTO_URL,
           rel: 'preconnect',
         },
+        {
+          rel: 'preload',
+          href: `${process.env.GRIDSOME_COMMENTO_URL}/css/commento.css`,
+          as: 'style',
+        },
       ],
       /**
        * Load & configure the Commento Javascript file.
