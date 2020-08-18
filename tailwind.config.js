@@ -27,6 +27,7 @@ module.exports = {
   },
   variants: {
     aspectRatio: ['responsive'],
+    borderWidth: ['responsive', 'last', 'hover', 'focus'],
   },
   plugins: [
     require('@tailwindcss/typography'),
