@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <footer
     class="text-gray-500 bg-gray-900 flex items-center justify-between px-4 mt-4 h-20"
   >

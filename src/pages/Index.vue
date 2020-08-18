@@ -1,4 +1,4 @@
-s<template>
+<template>
   <Layout>
     <div class="container max-w-2xl mx-auto flex-grow">
       <div>
