@@ -1,6 +1,6 @@
-<template>
+s<template>
   <Layout>
-    <div class="container max-w-2xl mx-auto mt-4 px-4 flex-grow">
+    <div class="container max-w-2xl mx-auto flex-grow">
       <div>
         <PostCard
           v-for="edge in $page.posts.edges"
