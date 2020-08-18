@@ -1,9 +1,7 @@
 <template>
   <div class="antialiased">
     <NavBar></NavBar>
-    <div class="container max-w-2xl mx-auto mt-4 px-4">
-      <slot />
-    </div>
+    <slot />
   </div>
 </template>
 
