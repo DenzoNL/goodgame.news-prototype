@@ -21,14 +21,15 @@
                 v-html="$page.post.title"
               ></h1>
             </div>
-            <PostTags :post="$page.post" class="mt-2"></PostTags>
+            <PostTags :post="$page.post" class="mt-4"></PostTags>
           </header>
           <section
             v-html="$page.post.content"
             class="mt-4 prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
           ></section>
-          <footer class="mt-4">
-            <p class="border-b pb-2">
+          <footer class="mt-8">
+            <ReviewScore v-if="isReview" :post="$page.post"></ReviewScore>
+            <p class="border-b mt-8 pb-2">
               By
               <g-link
                 class="font-semibold text-indigo-500"
@@ -53,6 +54,7 @@ query Post ($path: String!) {
     date: published_at (format: "MMMM DD, HH:MM")
     tags {
       id
+      slug
       title: name
       path
     }
@@ -70,10 +72,12 @@ query Post ($path: String!) {
 
 <script>
 import PostTags from '../components/PostTags';
+import ReviewScore from '../components/ReviewScore';
 
 export default {
   components: {
     PostTags,
+    ReviewScore,
   },
   metaInfo() {
     return {
@@ -124,6 +128,12 @@ export default {
   computed: {
     author() {
       return this.$page.post.authors[0];
+    },
+
+    isReview() {
+      return this.$page.post.tags.some((tag) => {
+        return tag.slug === 'review';
+      });
     },
   },
 };

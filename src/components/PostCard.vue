@@ -15,7 +15,7 @@
         >
           <h2 v-html="post.title"></h2>
         </g-link>
-        <PostTags :post="post" class="mt-2"></PostTags>
+        <PostTags :post="post" class="mt-4"></PostTags>
       </header>
       <g-link :to="post.path">
         <section class="my-4 prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
