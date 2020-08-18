@@ -1,6 +1,21 @@
 module.exports = {
   purge: ['./src/**/*.vue'],
   theme: {
+    typography: (theme) => ({
+      default: {
+        css: {
+          h1: {
+            color: theme('colors.indigo.500'),
+          },
+          h2: {
+            color: theme('colors.indigo.500'),
+          },
+          a: {
+            color: theme('colors.indigo.500'),
+          },
+        },
+      },
+    }),
     aspectRatio: {
       none: 0,
       square: [1, 1],
