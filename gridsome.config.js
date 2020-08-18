@@ -36,6 +36,16 @@ module.exports = {
     {
       use: '@gridsome/plugin-sitemap',
     },
+    /**
+     * Use Ackee analytics.
+     */
+    {
+      use: 'gridsome-plugin-ackee',
+      options: {
+        domain: process.env.ACKEE_URL,
+        domainId: process.env.ACKEE_ID,
+      },
+    },
   ],
   /**
    * Define templates to use with the Ghost data
