@@ -12,11 +12,11 @@
         >
           <g-link to="/" class="hover:text-indigo-500 mr-2">News</g-link>
           <span class="text-indigo-500 text-2xl mr-2">&rsaquo;</span>
-          <g-link to="/reviews" class="hover:text-indigo-500 mr-2"
+          <g-link to="/tag/review" class="hover:text-indigo-500 mr-2"
             >Reviews</g-link
           >
           <span class="text-indigo-500 text-2xl mr-2">&rsaquo;</span>
-          <g-link to="/about" class="hover:text-indigo-500">About</g-link>
+          <g-link to="/about" class="hover:text-indigo-500">Contact</g-link>
         </div>
       </nav>
     </div>
