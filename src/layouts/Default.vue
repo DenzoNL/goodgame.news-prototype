@@ -1,5 +1,5 @@
 <template>
-  <div class="antialiased min-h-screen flex flex-col">
+  <div class="antialiased min-h-screen flex flex-col bg-gray-100">
     <NavBar></NavBar>
     <slot />
     <Footer></Footer>
