@@ -3,16 +3,16 @@
     <header>
       <g-link :to="post.path">
         <g-image
-          class="rounded w-full hover:opacity-75 shadow-lg"
+          class="rounded w-full hover:opacity-75 shadow-lg mb-2"
           v-if="post.coverImage"
           :src="post.coverImage"
         ></g-image>
       </g-link>
-      <g-link :to="post.path">
-        <h2
-          class="text-xl font-semibold hover:underline text-indigo-500 mt-2"
-          v-html="post.title"
-        ></h2>
+      <g-link
+        :to="post.path"
+        class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+      >
+        <h2 v-html="post.title"></h2>
       </g-link>
       <PostTags :post="post" class="mt-2"></PostTags>
     </header>

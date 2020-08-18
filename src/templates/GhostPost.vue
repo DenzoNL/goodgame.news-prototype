@@ -1,23 +1,47 @@
 <template>
   <Layout>
-    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-      <header>
-        <h1 v-html="$page.post.title"></h1>
-        <g-image
-          class="rounded w-full"
-          v-if="$page.post.coverImage"
-          :src="$page.post.coverImage"
-        ></g-image>
-      </header>
-      <section>
-        <blockquote
-          v-html="$page.post.description"
-          class="shadow py-4 pr-2"
-        ></blockquote>
-      </section>
-      <section v-html="$page.post.content"></section>
-      <section id="commento"></section>
-    </article>
+    <div class="container max-w-2xl mx-auto">
+      <g-image
+        class="w-full"
+        v-if="$page.post.coverImage"
+        :src="$page.post.coverImage"
+      ></g-image>
+      <div class="mt-4 px-4">
+        <article>
+          <header>
+            <div class="text-gray-700 italic text-sm">
+              <p>
+                published at
+                <time class="font-semibold">{{ $page.post.date }}</time>
+              </p>
+            </div>
+            <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mt-2">
+              <h1
+                class="text-4xl text-bold tracking-tight"
+                v-html="$page.post.title"
+              ></h1>
+            </div>
+            <PostTags :post="$page.post" class="mt-2"></PostTags>
+          </header>
+          <section
+            v-html="$page.post.content"
+            class="mt-4 prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+          ></section>
+          <footer class="mt-4">
+            <p class="border-b pb-2">
+              By
+              <g-link
+                class="font-semibold text-indigo-500"
+                :to="'@' + author.slug"
+              >
+                @{{ author.name }}</g-link
+              >
+            </p>
+            <div id="commento" class="mt-8"></div>
+          </footer>
+        </article>
+      </div>
+    </div>
   </Layout>
 </template>
 
@@ -26,11 +50,16 @@ query Post ($path: String!) {
   post: ghostPost (path: $path) {
     title
     path
-    date: published_at (format: "D. MMMM YYYY")
+    date: published_at (format: "MMMM DD, HH:MM")
     tags {
       id
       title: name
       path
+    }
+    authors {
+      id
+      name
+      slug
     }
     description: excerpt
     content: html
@@ -40,7 +69,12 @@ query Post ($path: String!) {
 </page-query>
 
 <script>
+import PostTags from '../components/PostTags';
+
 export default {
+  components: {
+    PostTags,
+  },
   metaInfo() {
     return {
       link: [
@@ -60,6 +94,32 @@ export default {
         },
       ],
     };
+  },
+
+  mounted() {
+    this.fixYoutubeEmbeds();
+  },
+
+  methods: {
+    fixYoutubeEmbeds() {
+      document.querySelectorAll('iframe').forEach((el) => {
+        if (el.src && el.src.includes('https://www.youtube.com')) {
+          el.src = el.src.replace(
+            'https://www.youtube.com',
+            'https://www.youtube-nocookie.com',
+          );
+          el.classList.add('embed-responsive-item');
+          el.parentElement.classList.add('embed-responsive');
+          el.parentElement.classList.add('aspect-ratio-16/9');
+        }
+      });
+    },
+  },
+
+  computed: {
+    author() {
+      return this.$page.post.authors[0];
+    },
   },
 };
 </script>

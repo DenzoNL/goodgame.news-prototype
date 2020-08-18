@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="flex justify-between items-center text-xs mt-2">
-      <g-link
-        :to="'@' + post.authors[0].slug"
-        class="font-semibold text-indigo-500"
+      <g-link :to="'@' + author.slug" class="font-semibold text-indigo-500"
         >@{{ author.name }}</g-link
       >
 

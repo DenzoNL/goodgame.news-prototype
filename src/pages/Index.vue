@@ -1,20 +1,29 @@
 <template>
   <Layout>
-    <PostCard
-      v-for="edge in $page.posts.edges"
-      :key="edge.node.id"
-      :post="edge.node"
-    >
-    </PostCard>
+    <div class="container max-w-2xl mx-auto mt-4 px-4">
+      <PostCard
+        v-for="edge in $page.posts.edges"
+        :key="edge.node.id"
+        :post="edge.node"
+      >
+      </PostCard>
+      <Pager :pageInfo="$page.posts.pageInfo"></Pager>
+    </div>
   </Layout>
 </template>
 
 <page-query>
-{
+query ($page: Int){
   posts: allGhostPost(
+      perPage: 10, 
+      page: $page,
       sortBy: "published_at",
       order: DESC,
-  ) {
+  ) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         title
@@ -43,10 +52,12 @@
 
 <script>
 import PostCard from '../components/PostCard.vue';
+import Pager from '../components/Pager.vue';
 
 export default {
   components: {
     PostCard,
+    Pager,
   },
 
   metaInfo() {
