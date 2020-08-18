@@ -11,8 +11,16 @@
           <header>
             <div class="text-gray-700 italic text-sm">
               <p>
-                published at
-                <time class="font-semibold">{{ $page.post.date }}</time>
+                published on
+                <time
+                  class="font-semibold text-indigo-400"
+                  :datetime="$page.post.date"
+                  >{{ publishedDate }}</time
+                >
+                at
+                <span class="font-semibold text-indigo-400">{{
+                  publishedTime
+                }}</span>
               </p>
             </div>
             <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mt-2">
@@ -51,7 +59,7 @@ query Post ($path: String!) {
   post: ghostPost (path: $path) {
     title
     path
-    date: published_at (format: "MMMM DD, HH:MM")
+    date: published_at
     tags {
       id
       slug
@@ -71,6 +79,7 @@ query Post ($path: String!) {
 </page-query>
 
 <script>
+import { format, parseISO } from 'date-fns';
 import PostTags from '../components/PostTags';
 import ReviewScore from '../components/ReviewScore';
 
@@ -128,6 +137,14 @@ export default {
   computed: {
     author() {
       return this.$page.post.authors[0];
+    },
+
+    publishedDate() {
+      return format(parseISO(this.$page.post.date), 'dd MMMM yyyy');
+    },
+
+    publishedTime() {
+      return format(parseISO(this.$page.post.date), 'hh:mm');
     },
 
     isReview() {
