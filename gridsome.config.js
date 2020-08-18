@@ -43,5 +43,6 @@ module.exports = {
   templates: {
     GhostPost: '/:slug',
     GhostTag: '/tag/:slug',
+    GhostAuthor: '/@:slug',
   },
 };

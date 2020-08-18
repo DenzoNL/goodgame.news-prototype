@@ -59,25 +59,5 @@ export default {
     PostCard,
     Pager,
   },
-
-  metaInfo() {
-    return {
-      link: [
-        {
-          href: process.env.GRIDSOME_COMMENTO_URL,
-          rel: 'preconnect',
-        },
-      ],
-      /**
-       * Load in the Commento count script
-       * so PostCard.vue can fetch the comment count.
-       */
-      script: [
-        {
-          src: `${process.env.GRIDSOME_COMMENTO_URL}/js/count.js`,
-        },
-      ],
-    };
-  },
 };
 </script>
