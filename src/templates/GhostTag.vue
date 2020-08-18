@@ -1,13 +1,15 @@
 <template>
   <Layout>
     <div class="container max-w-2xl mx-auto mt-4 px-4">
-      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-        <h1 v-if="$page.tag.slug === 'review'">
-          <span class="text-gray-700">Reviews</span>
-        </h1>
-        <h1 v-else>
-          <span class="text-gray-700">#{{ $page.tag.title }}</span>
-        </h1>
+      <div class="border-b pb-4">
+        <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+          <h1 v-if="$page.tag.slug === 'review'">
+            <span class="text-gray-700">Reviews</span>
+          </h1>
+          <h1 v-else>
+            <span class="text-gray-700">#{{ $page.tag.title }}</span>
+          </h1>
+        </div>
       </div>
       <PostCard
         v-for="edge in $page.tag.belongsTo.edges"
