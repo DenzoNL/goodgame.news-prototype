@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="container max-w-2xl mx-auto mt-4 px-4">
+    <div class="container max-w-2xl mx-auto mt-4 px-4 flex-grow">
       <div class="border-b pb-4">
         <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
           <h1 v-if="$page.tag.slug === 'review'">

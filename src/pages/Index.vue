@@ -1,12 +1,14 @@
 <template>
   <Layout>
-    <div class="container max-w-2xl mx-auto mt-4 px-4">
-      <PostCard
-        v-for="edge in $page.posts.edges"
-        :key="edge.node.id"
-        :post="edge.node"
-      >
-      </PostCard>
+    <div class="container max-w-2xl mx-auto mt-4 px-4 flex-grow">
+      <div>
+        <PostCard
+          v-for="edge in $page.posts.edges"
+          :key="edge.node.id"
+          :post="edge.node"
+        >
+        </PostCard>
+      </div>
       <Pager :pageInfo="$page.posts.pageInfo"></Pager>
     </div>
   </Layout>

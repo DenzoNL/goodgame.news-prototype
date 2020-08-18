@@ -1,7 +1,8 @@
 <template>
-  <div class="antialiased">
+  <div class="antialiased min-h-screen flex flex-col">
     <NavBar></NavBar>
     <slot />
+    <Footer></Footer>
   </div>
 </template>
 
@@ -15,10 +16,12 @@ query {
 
 <script>
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 export default {
   components: {
     NavBar,
+    Footer,
   },
   metaInfo() {
     return {

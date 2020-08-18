@@ -1,5 +1,5 @@
 <template>
-  <article class="mt-4 pb-4 border-b">
+  <article class="mt-4 pb-4 border-b last:border-b-0">
     <header>
       <g-link :to="post.path">
         <g-image
