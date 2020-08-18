@@ -11,7 +11,7 @@
     </div>
     <div class="flex justify-between items-center text-xs">
       <time :datetime="post.date">{{ timeAgo }} ago</time>
-      <g-link :to="post.path + '#commento'"></g-link>
+      <a :href="commentCountPath"></a>
     </div>
   </div>
 </template>
@@ -20,12 +20,41 @@ import { formatDistanceToNow, parseISO } from 'date-fns';
 
 export default {
   props: ['post'],
+
+  metaInfo() {
+    return {
+      link: [
+        {
+          href: process.env.GRIDSOME_COMMENTO_URL,
+          rel: 'preconnect',
+        },
+        {
+          rel: 'preload',
+          href: `${process.env.GRIDSOME_COMMENTO_URL}/js/count.js`,
+          as: 'script',
+        },
+      ],
+      /**
+       * Load in the Commento count script
+       * so PostCard.vue can fetch the comment count.
+       */
+      script: [
+        {
+          src: `${process.env.GRIDSOME_COMMENTO_URL}/js/count.js`,
+        },
+      ],
+    };
+  },
+
   computed: {
     author() {
       return this.post.authors[0];
     },
     timeAgo() {
       return formatDistanceToNow(parseISO(this.post.date));
+    },
+    commentCountPath() {
+      return `${this.post.path}#commento`;
     },
   },
 };
