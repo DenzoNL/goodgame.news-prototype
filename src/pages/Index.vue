@@ -52,6 +52,15 @@ query ($page: Int){
 }
 </page-query>
 
+<static-query>
+query {
+  metadata {
+    siteName
+    siteUrl
+  }
+}
+</static-query>
+
 <script>
 import PostCard from '../components/PostCard.vue';
 import Pager from '../components/Pager.vue';
@@ -60,6 +69,48 @@ export default {
   components: {
     PostCard,
     Pager,
+  },
+
+  metaInfo() {
+    return {
+      title:
+        this.$page.posts.pageInfo.currentPage === 1
+          ? 'Latest news & honest game reviews'
+          : `Older posts - Page ${this.$page.posts.pageInfo.currentPage}`,
+      meta: [
+        {
+          name: 'og:title',
+          content: 'Latest news & honest game reviews',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Latest news & honest game reviews',
+        },
+        {
+          name: 'description',
+          content:
+            'goodgame.news keeps you up to date with the latest news and honest reviews of video games for PC, PlayStation 4, Xbox One and Nintendo Switch',
+        },
+        {
+          name: 'og:description',
+          content:
+            'goodgame.news keeps you up to date with the latest news and honest reviews of video games for PC, PlayStation 4, Xbox One and Nintendo Switch',
+        },
+        {
+          name: 'twitter:description',
+          content:
+            'goodgame.news keeps you up to date with the latest news and honest reviews of video games for PC, PlayStation 4, Xbox One and Nintendo Switch',
+        },
+        {
+          name: 'og:image',
+          content: `${this.$static.metadata.siteUrl}/android-chrome-512x512.png`,
+        },
+        {
+          name: 'twitter:image',
+          content: `${this.$static.metadata.siteUrl}/android-chrome-512x512.png`,
+        },
+      ],
+    };
   },
 };
 </script>
