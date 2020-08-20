@@ -55,6 +55,14 @@
   </Layout>
 </template>
 
+<static-query>
+query {
+  metadata {
+    siteUrl
+  }
+}
+</static-query>
+
 <page-query>
 query Post ($path: String!) {
   post: ghostPost (path: $path) {
@@ -94,32 +102,44 @@ export default {
       title: this.$page.post.title,
       meta: [
         {
-          name: 'og:title',
+          name: 'description',
+          content: this.$page.post.description,
+        },
+        {
+          property: 'og:title',
           content: this.$page.post.title,
+        },
+        {
+          property: 'og:description',
+          content: this.$page.post.description,
+        },
+        {
+          property: 'og:image',
+          content: this.$page.post.coverImage,
+        },
+        {
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          property: 'og:url',
+          content: `${this.$static.metadata.siteUrl}${this.$page.post.path}`,
         },
         {
           name: 'twitter:title',
           content: this.$page.post.title,
         },
         {
-          name: 'description',
-          content: this.$page.post.description,
-        },
-        {
-          name: 'og:description',
-          content: this.$page.post.description,
-        },
-        {
           name: 'twitter:description',
           content: this.$page.post.description,
         },
         {
-          name: 'og:image',
+          name: 'twitter:image',
           content: this.$page.post.coverImage,
         },
         {
-          name: 'twitter:image',
-          content: this.$page.post.coverImage,
+          name: 'twitter:card',
+          content: 'summary_large_image',
         },
       ],
       link: [
