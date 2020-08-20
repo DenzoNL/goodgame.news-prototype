@@ -60,6 +60,14 @@ query Tag ($path: String!) {
 }
 </page-query>
 
+<static-query>
+query {
+  metadata {
+    siteUrl
+  }
+}
+</static-query>
+
 <script>
 import PostCard from '../components/PostCard.vue';
 
@@ -80,7 +88,43 @@ export default {
       meta: [
         {
           name: 'description',
-          content: `All posts tagged ${this.hashTag}`,
+          content: `All articles tagged ${this.hashTag}`,
+        },
+        {
+          property: 'og:title',
+          content: this.hashTag,
+        },
+        {
+          property: 'og:description',
+          content: `All articles tagged ${this.hashTag}`,
+        },
+        {
+          property: 'og:image',
+          content: this.$page.tag.belongsTo.edges[0].node.coverImage,
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:url',
+          content: `${this.$static.metadata.siteUrl}${this.$page.tag.path}`,
+        },
+        {
+          name: 'twitter:title',
+          content: this.hashTag,
+        },
+        {
+          name: 'twitter:description',
+          content: `All articles tagged ${this.hashTag}`,
+        },
+        {
+          name: 'twitter:image',
+          content: this.$page.tag.belongsTo.edges[0].node.coverImage,
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
         },
       ],
     };
