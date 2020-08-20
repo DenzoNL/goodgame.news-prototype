@@ -79,22 +79,34 @@ export default {
           : `Older posts - Page ${this.$page.posts.pageInfo.currentPage}`,
       meta: [
         {
-          name: 'og:title',
-          content: 'Latest news & honest game reviews',
-        },
-        {
-          name: 'twitter:title',
-          content: 'Latest news & honest game reviews',
-        },
-        {
           name: 'description',
           content:
             'goodgame.news keeps you up to date with the latest news and honest reviews of video games for PC, PlayStation 4, Xbox One and Nintendo Switch',
         },
         {
-          name: 'og:description',
+          property: 'og:title',
+          content: 'Latest news & honest game reviews',
+        },
+        {
+          property: 'og:description',
           content:
             'goodgame.news keeps you up to date with the latest news and honest reviews of video games for PC, PlayStation 4, Xbox One and Nintendo Switch',
+        },
+        {
+          property: 'og:image',
+          content: `${this.$static.metadata.siteUrl}/android-chrome-512x512.png`,
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:url',
+          content: `${this.$static.metadata.siteUrl}`,
+        },
+        {
+          name: 'twitter:title',
+          content: 'Latest news & honest game reviews',
         },
         {
           name: 'twitter:description',
@@ -102,12 +114,12 @@ export default {
             'goodgame.news keeps you up to date with the latest news and honest reviews of video games for PC, PlayStation 4, Xbox One and Nintendo Switch',
         },
         {
-          name: 'og:image',
+          name: 'twitter:image',
           content: `${this.$static.metadata.siteUrl}/android-chrome-512x512.png`,
         },
         {
-          name: 'twitter:image',
-          content: `${this.$static.metadata.siteUrl}/android-chrome-512x512.png`,
+          name: 'twitter:card',
+          content: 'summary',
         },
       ],
     };
