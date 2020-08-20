@@ -3,6 +3,7 @@
     <div class="container max-w-2xl mx-auto">
       <g-image
         class="w-full"
+        :alt="`Article cover image for '${$page.post.title}'`"
         v-if="$page.post.coverImage"
         :src="$page.post.coverImage"
       ></g-image>
