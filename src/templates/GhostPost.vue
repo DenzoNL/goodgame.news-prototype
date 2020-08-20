@@ -94,8 +94,32 @@ export default {
       title: this.$page.post.title,
       meta: [
         {
+          name: 'og:title',
+          content: this.$page.post.title,
+        },
+        {
+          name: 'twitter:title',
+          content: this.$page.post.title,
+        },
+        {
           name: 'description',
           content: this.$page.post.description,
+        },
+        {
+          name: 'og:description',
+          content: this.$page.post.description,
+        },
+        {
+          name: 'twitter:description',
+          content: this.$page.post.description,
+        },
+        {
+          name: 'og:image',
+          content: this.$page.post.coverImage,
+        },
+        {
+          name: 'twitter:image',
+          content: this.$page.post.coverImage,
         },
       ],
       link: [
