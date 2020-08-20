@@ -91,6 +91,13 @@ export default {
   },
   metaInfo() {
     return {
+      title: this.$page.post.title,
+      meta: [
+        {
+          name: 'description',
+          content: this.$page.post.description,
+        },
+      ],
       link: [
         {
           href: process.env.GRIDSOME_COMMENTO_URL,
