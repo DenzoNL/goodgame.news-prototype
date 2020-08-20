@@ -4,7 +4,7 @@
       <nav class="flex items-center flex-wrap justify-between py-4">
         <div class="flex items-center justify-start flex-shrink-0">
           <g-link to="/">
-            <g-image src="/logo.svg" class="h-8"></g-image>
+            <g-image src="/logo.svg" alt="Goodgame.news" class="h-8"></g-image>
           </g-link>
         </div>
         <div
