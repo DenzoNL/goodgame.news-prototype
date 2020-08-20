@@ -7,7 +7,7 @@
             <span class="text-gray-700">Reviews</span>
           </h1>
           <h1 v-else>
-            <span class="text-gray-700">#{{ $page.tag.title }}</span>
+            <span class="text-gray-700">{{ this.hashTag }}</span>
           </h1>
         </div>
       </div>
@@ -66,6 +66,24 @@ import PostCard from '../components/PostCard.vue';
 export default {
   components: {
     PostCard,
+  },
+
+  computed: {
+    hashTag() {
+      return `#${this.$page.tag.title}`;
+    },
+  },
+
+  metaInfo() {
+    return {
+      title: this.hashTag,
+      meta: [
+        {
+          name: 'description',
+          content: `All posts tagged ${this.hashTag}`,
+        },
+      ],
+    };
   },
 };
 </script>
