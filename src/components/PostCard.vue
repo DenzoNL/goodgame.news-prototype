@@ -3,6 +3,7 @@
     <g-link :to="post.path">
       <g-image
         class="w-full hover:opacity-75 shadow-lg mb-2"
+        :alt="`Article cover image for '${post.title}'`"
         v-if="post.coverImage"
         :src="post.coverImage"
       ></g-image>

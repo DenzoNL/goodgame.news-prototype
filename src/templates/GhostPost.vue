@@ -3,6 +3,7 @@
     <div class="container max-w-2xl mx-auto">
       <g-image
         class="w-full"
+        :alt="`Article cover image for '${$page.post.title}'`"
         v-if="$page.post.coverImage"
         :src="$page.post.coverImage"
       ></g-image>
@@ -90,6 +91,37 @@ export default {
   },
   metaInfo() {
     return {
+      title: this.$page.post.title,
+      meta: [
+        {
+          name: 'og:title',
+          content: this.$page.post.title,
+        },
+        {
+          name: 'twitter:title',
+          content: this.$page.post.title,
+        },
+        {
+          name: 'description',
+          content: this.$page.post.description,
+        },
+        {
+          name: 'og:description',
+          content: this.$page.post.description,
+        },
+        {
+          name: 'twitter:description',
+          content: this.$page.post.description,
+        },
+        {
+          name: 'og:image',
+          content: this.$page.post.coverImage,
+        },
+        {
+          name: 'twitter:image',
+          content: this.$page.post.coverImage,
+        },
+      ],
       link: [
         {
           href: process.env.GRIDSOME_COMMENTO_URL,

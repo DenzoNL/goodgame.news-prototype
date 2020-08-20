@@ -1,8 +1,8 @@
-<template functional>
+<template>
   <footer
     class="text-gray-500 bg-gray-900 flex items-center justify-between px-4 mt-4 h-20"
   >
-    <p>&copy; {{ new Date().getFullYear() }} goodgame.news</p>
+    <p>&copy; {{ new Date().getFullYear() }} {{ $static.metadata.siteName }}</p>
     <div>
       <a
         href="https://github.com/denzonl/goodgame.news"
@@ -25,3 +25,11 @@
     </div>
   </footer>
 </template>
+
+<static-query>
+query {
+  metadata {
+    siteName
+  }
+}
+</static-query>
