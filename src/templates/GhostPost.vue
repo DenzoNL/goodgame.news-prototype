@@ -14,12 +14,12 @@
               <p>
                 published on
                 <time
-                  class="font-semibold text-indigo-400"
+                  class="font-semibold text-indigo-900"
                   :datetime="$page.post.date"
                   >{{ publishedDate }}</time
                 >
                 at
-                <span class="font-semibold text-indigo-400">{{
+                <span class="font-semibold text-indigo-900">{{
                   publishedTime
                 }}</span>
               </p>
@@ -41,7 +41,7 @@
             <p class="border-b mt-8 pb-2">
               By
               <g-link
-                class="font-semibold text-indigo-500"
+                class="font-semibold text-indigo-700"
                 :to="'@' + author.slug"
               >
                 @{{ author.name }}</g-link

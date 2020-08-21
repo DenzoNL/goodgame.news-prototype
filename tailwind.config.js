@@ -13,6 +13,9 @@ module.exports = {
           a: {
             color: theme('colors.indigo.500'),
           },
+          'figure figcaption': {
+            color: theme('colors.indigo.900'),
+          },
         },
       },
     }),

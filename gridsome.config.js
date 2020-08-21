@@ -7,6 +7,7 @@
 module.exports = {
   siteName: 'goodgame.news',
   siteUrl: 'https://goodgame.news',
+  icon: './src/logo-512x512.png',
   plugins: [
     /**
      * Add the Tailwind CSS plugin.
@@ -35,6 +36,20 @@ module.exports = {
      */
     {
       use: '@gridsome/plugin-sitemap',
+    },
+    /**
+     * Automatically  generate a manifest
+     */
+    {
+      use: 'gridsome-plugin-manifest',
+      options: {
+        background_color: '#f7fafc',
+        icon_path: './src/logo-512x512.png',
+        name: 'goodgame.news',
+        short_name: 'gg.',
+        theme_color: '#667eea',
+        lang: 'en',
+      },
     },
     /**
      * Use Ackee analytics.
