@@ -69,6 +69,7 @@ query Post ($path: String!) {
     title
     path
     date: published_at
+    updated_at,
     tags {
       id
       slug
@@ -79,6 +80,7 @@ query Post ($path: String!) {
       id
       name
       slug
+      path
     }
     description: excerpt
     content: html
@@ -158,6 +160,10 @@ export default {
        */
       script: [
         {
+          type: 'application/ld+json',
+          json: this.structuredData,
+        },
+        {
           src: `${process.env.GRIDSOME_COMMENTO_URL}/js/commento.js`,
           defer: true,
           'data-no-fonts': true,
@@ -203,6 +209,23 @@ export default {
       return this.$page.post.tags.some((tag) => {
         return tag.slug === 'review';
       });
+    },
+
+    structuredData() {
+      return {
+        '@context': 'http://schema.org',
+        '@type': 'NewsArticle',
+        headline: this.$page.post.title,
+        description: this.$page.post.description,
+        image: [this.$page.post.coverImage],
+        author: {
+          '@type': 'Person',
+          name: this.author.name,
+          url: `${this.$static.metadata.siteUrl}${this.author.path}`,
+        },
+        datePublished: this.$page.post.date,
+        dateModified: this.$page.post.updated_at,
+      };
     },
   },
 };
