@@ -140,6 +140,10 @@ export default {
           content: this.$page.post.coverImage,
         },
         {
+          name: 'twitter:site',
+          content: process.env.GRIDSOME_TWITTER_SITE,
+        },
+        {
           name: 'twitter:card',
           content: 'summary_large_image',
         },

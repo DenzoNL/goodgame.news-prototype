@@ -118,6 +118,10 @@ export default {
           content: `${this.$static.metadata.siteUrl}/assets/img/logo-512x512-512.png`,
         },
         {
+          name: 'twitter:site',
+          content: process.env.GRIDSOME_TWITTER_SITE,
+        },
+        {
           name: 'twitter:card',
           content: 'summary',
         },
