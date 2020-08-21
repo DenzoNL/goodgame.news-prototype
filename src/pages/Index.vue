@@ -94,7 +94,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: `${this.$static.metadata.siteUrl}/android-chrome-512x512.png`,
+          content: `${this.$static.metadata.siteUrl}/assets/img/logo-512x512-512.png`,
         },
         {
           property: 'og:type',
@@ -115,7 +115,7 @@ export default {
         },
         {
           name: 'twitter:image',
-          content: `${this.$static.metadata.siteUrl}/android-chrome-512x512.png`,
+          content: `${this.$static.metadata.siteUrl}/assets/img/logo-512x512-512.png`,
         },
         {
           name: 'twitter:card',
