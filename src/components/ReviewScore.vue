@@ -29,10 +29,32 @@
     </div>
   </div>
 </template>
+
+<static-query>
+query {
+  metadata {
+    siteUrl
+  }
+}
+</static-query>
+
 <script>
 export default {
   props: ['post'],
+  metaInfo() {
+    return {
+      script: [
+        {
+          type: 'application/ld+json',
+          json: this.structuredData,
+        },
+      ],
+    };
+  },
   computed: {
+    author() {
+      return this.post.authors[0];
+    },
     /**
      * Return the extracted score
      * from the internal score tag.
@@ -43,6 +65,38 @@ export default {
         return 0.0;
       }
       return parseFloat(tag.title.replace('#score:', ''));
+    },
+
+    gameTitle() {
+      return this.post.title.includes('Review: ')
+        ? this.post.title.split('Review: ')[1]
+        : null;
+    },
+
+    structuredData() {
+      return {
+        '@context': 'http://schema.org',
+        '@type': 'Review',
+        itemReviewed: {
+          '@type': 'VideoGame',
+          name: this.gameTitle,
+        },
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: this.score,
+        },
+        author: {
+          '@type': 'Person',
+          name: this.author.name,
+          url: `${this.$static.metadata.siteUrl}${this.author.path}`,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'goodgame.news',
+        },
+        datePublished: this.post.date,
+        dateModified: this.post.updated_at,
+      };
     },
   },
 };
