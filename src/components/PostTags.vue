@@ -15,7 +15,10 @@ export default {
   props: ['post'],
   computed: {
     tags() {
-      return this.post.tags.filter((tag) => !tag.title.startsWith('#'));
+      if (this.post.tags && Array.isArray(this.post.tags)) {
+        return this.post.tags.filter((tag) => !tag.title.startsWith('#'));
+      }
+      return [];
     },
   },
 };
