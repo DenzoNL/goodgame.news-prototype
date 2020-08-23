@@ -85,6 +85,6 @@ module.exports = {
         component: './src/templates/GhostTag.vue',
       },
     ],
-    GhostAuthor: '/@:slug',
+    GhostAuthor: '/author/:slug',
   },
 };

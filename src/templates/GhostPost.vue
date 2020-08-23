@@ -42,9 +42,9 @@
               By
               <g-link
                 class="font-semibold text-indigo-700"
-                :to="'@' + author.slug"
+                :to="$page.post.author.path"
               >
-                @{{ author.name }}</g-link
+                @{{ $page.post.author.name }}</g-link
               >
             </p>
             <div id="commento" class="mt-8"></div>
@@ -76,7 +76,7 @@ query Post ($path: String!) {
       title: name
       path
     }
-    authors {
+    author: primary_author {
       id
       name
       slug
@@ -197,10 +197,6 @@ export default {
   },
 
   computed: {
-    author() {
-      return this.$page.post.authors[0];
-    },
-
     publishedDate() {
       return format(parseISO(this.$page.post.date), 'dd MMMM yyyy');
     },
@@ -224,8 +220,8 @@ export default {
         image: [this.$page.post.coverImage],
         author: {
           '@type': 'Person',
-          name: this.author.name,
-          url: `${this.$static.metadata.siteUrl}${this.author.path}`,
+          name: this.$page.post.author.name,
+          url: `${this.$static.metadata.siteUrl}${this.$page.post.author.path}`,
         },
         datePublished: this.$page.post.date,
         dateModified: this.$page.post.updated_at,

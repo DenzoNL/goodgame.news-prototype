@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex justify-between items-center text-xs mt-2">
-      <g-link :to="'@' + author.slug" class="font-semibold text-indigo-500"
-        >@{{ author.name }}</g-link
+      <g-link :to="post.author.path" class="font-semibold text-indigo-500"
+        >@{{ post.author.name }}</g-link
       >
 
       <template v-if="post.reading_time">
@@ -47,9 +47,6 @@ export default {
   },
 
   computed: {
-    author() {
-      return this.post.authors[0];
-    },
     timeAgo() {
       return formatDistanceToNow(parseISO(this.post.date));
     },

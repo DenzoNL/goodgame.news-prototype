@@ -9,9 +9,11 @@
         profile picture`"
             class="w-16 h-16 rounded-full mr-4 shadow-xl"
           ></g-image>
-          <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+          <div>
             <h1>
-              <span class="text-3xl font-bold">{{ $page.author.name }}</span>
+              <span class="text-3xl font-black text-indigo-500">{{
+                $page.author.name
+              }}</span>
             </h1>
           </div>
         </div>
@@ -23,7 +25,7 @@
       </div>
       <div class="pb-4 mt-4 px-4">
         <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-          <h2><span class="text-4xl font-black">Latest posts</span></h2>
+          <h2><span class="text-3xl font-bold">Latest posts</span></h2>
         </div>
       </div>
       <PostCard
@@ -59,17 +61,20 @@ query Author ($path: String!) {
             title
             description: excerpt
             date: published_at
+            updated_at
             path
             reading_time
             tags {
               id
+              slug
               title: name
               path
             }
-            authors {
+            author: primary_author {
               id
               name
               slug
+              path
             }
             slug
             id

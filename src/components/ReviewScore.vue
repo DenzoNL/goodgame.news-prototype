@@ -52,9 +52,6 @@ export default {
     };
   },
   computed: {
-    author() {
-      return this.post.authors[0];
-    },
     /**
      * Return the extracted score
      * from the internal score tag.
@@ -87,8 +84,8 @@ export default {
         },
         author: {
           '@type': 'Person',
-          name: this.author.name,
-          url: `${this.$static.metadata.siteUrl}${this.author.path}`,
+          name: this.post.author.name,
+          url: `${this.$static.metadata.siteUrl}${this.post.author.path}`,
         },
         publisher: {
           '@type': 'Organization',
