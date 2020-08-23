@@ -66,8 +66,25 @@ module.exports = {
    * Define templates to use with the Ghost data
    */
   templates: {
-    GhostPost: '/:slug',
-    GhostTag: '/tag/:slug',
+    GhostPage: '/:slug',
+    GhostPost: [
+      {
+        path: (node) => {
+          return node.primary_tag.id === '5f0799ccc4b76000012f11e1'
+            ? `/reviews/${node.slug}`
+            : `/${node.slug}`;
+        },
+        component: './src/templates/GhostPost.vue',
+      },
+    ],
+    GhostTag: [
+      {
+        path: (node) => {
+          return node.slug === 'review' ? '/reviews' : `/tag/${node.slug}`;
+        },
+        component: './src/templates/GhostTag.vue',
+      },
+    ],
     GhostAuthor: '/@:slug',
   },
 };

@@ -131,6 +131,10 @@ export default {
           content: this.$page.author.profile_image,
         },
         {
+          name: 'twitter:site',
+          content: process.env.GRIDSOME_TWITTER_SITE,
+        },
+        {
           name: 'twitter:card',
           content: 'summary',
         },

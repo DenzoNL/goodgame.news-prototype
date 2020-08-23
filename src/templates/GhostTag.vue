@@ -123,6 +123,10 @@ export default {
           content: this.$page.tag.belongsTo.edges[0].node.coverImage,
         },
         {
+          name: 'twitter:site',
+          content: process.env.GRIDSOME_TWITTER_SITE,
+        },
+        {
           name: 'twitter:card',
           content: 'summary_large_image',
         },
