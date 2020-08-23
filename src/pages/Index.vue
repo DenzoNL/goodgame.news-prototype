@@ -38,10 +38,11 @@ query ($page: Int){
           title: name
           path
         }
-        authors {
+        author: primary_author {
           id
           name
           slug
+          path
         }
         slug
         id

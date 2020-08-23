@@ -44,10 +44,11 @@ query Tag ($path: String!) {
               title: name
               path
             }
-            authors {
+            author: primary_author {
               id
               name
               slug
+              path
             }
             slug
             id
