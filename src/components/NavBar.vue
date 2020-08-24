@@ -16,7 +16,7 @@
             >Reviews</g-link
           >
           <span class="text-indigo-500 text-2xl mr-2">&rsaquo;</span>
-          <g-link to="/about/" class="hover:text-indigo-500">Contact</g-link>
+          <g-link to="/contact/" class="hover:text-indigo-500">Contact</g-link>
         </div>
       </nav>
     </div>

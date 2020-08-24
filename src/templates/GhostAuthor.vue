@@ -54,7 +54,7 @@ query Author ($path: String!) {
     path
     profile_image
     bio
-    belongsTo {
+    belongsTo (filter: { typeName: { eq: GhostPost } }) {
       edges {
         node {
           ...on GhostPost {
