@@ -1,20 +1,27 @@
 <template>
   <div class="antialiased min-h-screen flex flex-col bg-gray-100">
     <NavBar></NavBar>
-    <slot />
+    <transition
+      appear
+      enter-active-class="transition duration-500"
+      enter-class="opacity-0"
+    >
+      <router-view />
+    </transition>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 export default {
   components: {
     NavBar,
     Footer,
   },
+
   metaInfo() {
     return {
       meta: [
