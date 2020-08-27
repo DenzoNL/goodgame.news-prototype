@@ -1,25 +1,23 @@
 <template>
-  <Layout>
-    <div class="container max-w-2xl mx-auto flex-grow">
-      <div class="border-b pb-4 mt-4 px-4">
-        <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-          <h1 v-if="$page.tag.slug === 'review'">
-            <span class="text-gray-700">Reviews</span>
-          </h1>
-          <h1 v-else>
-            <span class="text-gray-700">{{ this.hashTag }}</span>
-          </h1>
-        </div>
+  <div class="container max-w-2xl mx-auto flex-grow">
+    <div class="border-b pb-4 mt-4 px-4">
+      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+        <h1 v-if="$page.tag.slug === 'review'">
+          <span class="text-gray-700">Reviews</span>
+        </h1>
+        <h1 v-else>
+          <span class="text-gray-700">{{ this.hashTag }}</span>
+        </h1>
       </div>
-      <PostCard
-        v-for="edge in $page.tag.belongsTo.edges"
-        :key="edge.node.id"
-        :post="edge.node"
-      >
-      </PostCard>
-      <!-- <Pager :pageInfo="$page.posts.pageInfo"></Pager> -->
     </div>
-  </Layout>
+    <PostCard
+      v-for="edge in $page.tag.belongsTo.edges"
+      :key="edge.node.id"
+      :post="edge.node"
+    >
+    </PostCard>
+    <!-- <Pager :pageInfo="$page.posts.pageInfo"></Pager> -->
+  </div>
 </template>
 
 <page-query>

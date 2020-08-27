@@ -22,3 +22,9 @@
     </div>
   </header>
 </template>
+
+<style scoped>
+.active--exact {
+  @apply text-indigo-500;
+}
+</style>

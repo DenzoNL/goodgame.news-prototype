@@ -1,58 +1,56 @@
 <template>
-  <Layout>
-    <div class="container max-w-2xl mx-auto">
-      <g-image
-        class="w-full"
-        :alt="`Article cover image for '${$page.post.title}'`"
-        v-if="$page.post.coverImage"
-        :src="$page.post.coverImage"
-      ></g-image>
-      <div class="mt-4 px-4">
-        <article>
-          <header>
-            <div class="text-gray-700 italic text-sm">
-              <p>
-                published on
-                <time
-                  class="font-semibold text-indigo-900"
-                  :datetime="$page.post.date"
-                  >{{ publishedDate }}</time
-                >
-                at
-                <span class="font-semibold text-indigo-900">{{
-                  publishedTime
-                }}</span>
-              </p>
-            </div>
-            <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mt-2">
-              <h1
-                class="text-4xl text-bold tracking-tight"
-                v-html="$page.post.title"
-              ></h1>
-            </div>
-            <PostTags :post="$page.post" class="mt-4"></PostTags>
-          </header>
-          <section
-            v-html="$page.post.content"
-            class="mt-4 prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
-          ></section>
-          <footer class="mt-8">
-            <ReviewScore v-if="isReview" :post="$page.post"></ReviewScore>
-            <p class="border-b mt-8 pb-2">
-              By
-              <g-link
-                class="font-semibold text-indigo-700"
-                :to="$page.post.author.path"
+  <div class="container max-w-2xl mx-auto">
+    <g-image
+      class="w-full"
+      :alt="`Article cover image for '${$page.post.title}'`"
+      v-if="$page.post.coverImage"
+      :src="$page.post.coverImage"
+    ></g-image>
+    <div class="mt-4 px-4">
+      <article>
+        <header>
+          <div class="text-gray-700 italic text-sm">
+            <p>
+              published on
+              <time
+                class="font-semibold text-indigo-900"
+                :datetime="$page.post.date"
+                >{{ publishedDate }}</time
               >
-                @{{ $page.post.author.name }}</g-link
-              >
+              at
+              <span class="font-semibold text-indigo-900">{{
+                publishedTime
+              }}</span>
             </p>
-            <div id="commento" class="mt-8"></div>
-          </footer>
-        </article>
-      </div>
+          </div>
+          <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mt-2">
+            <h1
+              class="text-4xl text-bold tracking-tight"
+              v-html="$page.post.title"
+            ></h1>
+          </div>
+          <PostTags :post="$page.post" class="mt-4"></PostTags>
+        </header>
+        <section
+          v-html="$page.post.content"
+          class="mt-4 prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+        ></section>
+        <footer class="mt-8">
+          <ReviewScore v-if="isReview" :post="$page.post"></ReviewScore>
+          <p class="border-b mt-8 pb-2">
+            By
+            <g-link
+              class="font-semibold text-indigo-700"
+              :to="$page.post.author.path"
+            >
+              @{{ $page.post.author.name }}</g-link
+            >
+          </p>
+          <div id="commento" class="mt-8"></div>
+        </footer>
+      </article>
     </div>
-  </Layout>
+  </div>
 </template>
 
 <static-query>

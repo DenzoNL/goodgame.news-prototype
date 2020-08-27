@@ -1,42 +1,40 @@
 <template>
-  <Layout>
-    <div class="container max-w-2xl mx-auto flex-grow">
-      <div class="p-4 border-b">
-        <div class="flex justify-start items-center">
-          <g-image
-            :src="$page.author.profile_image"
-            :alt="`${$page.author.name}'s
+  <div class="container max-w-2xl mx-auto flex-grow">
+    <div class="p-4 border-b">
+      <div class="flex justify-start items-center">
+        <g-image
+          :src="$page.author.profile_image"
+          :alt="`${$page.author.name}'s
         profile picture`"
-            class="w-16 h-16 rounded-full mr-4 shadow-xl"
-          ></g-image>
-          <div>
-            <h1>
-              <span class="text-3xl font-black text-indigo-500">{{
-                $page.author.name
-              }}</span>
-            </h1>
-          </div>
-        </div>
-        <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mt-4">
-          <p>
-            <span class="italic">{{ $page.author.bio }}</span>
-          </p>
+          class="w-16 h-16 rounded-full mr-4 shadow-xl"
+        ></g-image>
+        <div>
+          <h1>
+            <span class="text-3xl font-black text-indigo-500">{{
+              $page.author.name
+            }}</span>
+          </h1>
         </div>
       </div>
-      <div class="pb-4 mt-4 px-4">
-        <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-          <h2><span class="text-3xl font-bold">Latest posts</span></h2>
-        </div>
+      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mt-4">
+        <p>
+          <span class="italic">{{ $page.author.bio }}</span>
+        </p>
       </div>
-      <PostCard
-        v-for="edge in $page.author.belongsTo.edges"
-        :key="edge.node.id"
-        :post="edge.node"
-      >
-      </PostCard>
-      <!-- <Pager :pageInfo="$page.posts.pageInfo"></Pager> -->
     </div>
-  </Layout>
+    <div class="pb-4 mt-4 px-4">
+      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+        <h2><span class="text-3xl font-bold">Latest posts</span></h2>
+      </div>
+    </div>
+    <PostCard
+      v-for="edge in $page.author.belongsTo.edges"
+      :key="edge.node.id"
+      :post="edge.node"
+    >
+    </PostCard>
+    <!-- <Pager :pageInfo="$page.posts.pageInfo"></Pager> -->
+  </div>
 </template>
 
 <static-query>
